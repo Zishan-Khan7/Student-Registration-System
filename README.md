@@ -5,12 +5,13 @@ The whole thing runs off three files, so no build tools or setup required — ju
 
 **GitHub Repository:** https://github.com/Zishan-Khan7/Student-Registration-System
 
-## Files Structure:
-├── index.html       # The main HTML structure of the application
-├── style.css        # Custom CSS for styling and responsiveness
-├── script.js       # Core JavaScript logic and DOM manipulation
-└── README.md        # Project documentation and overview
+## File Structure
 
+    index.html    → page layout
+    style.css     → styling and responsiveness
+    script.js     → all the JS logic
+    README.md     → this file
+    
 ## Form validation
 
 The form won't submit unless all fields pass these checks:
