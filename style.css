@@ -1,0 +1,276 @@
+:root {
+    --primary: #2e7d32;
+    --primary-dark: #1b5e20;
+    --accent: #8bc34a;
+    --surface: rgba(255, 255, 255, 0.92);
+    --surface-strong: #ffffff;
+    --border: #dce7da;
+    --text: #23312a;
+    --muted: #5f6f67;
+    --shadow: 0 18px 40px rgba(21, 47, 24, 0.18);
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+    min-height: 100vh;
+    padding: 24px;
+    color: var(--text);
+    background:
+        radial-gradient(circle at top, rgba(255, 255, 255, 0.16), transparent 28%),
+        linear-gradient(135deg, #7c8cff 0%, #5b6cf6 45%, #2f3f9e 100%);
+}
+
+header {
+    max-width: 1200px;
+    margin: 0 auto 28px;
+    text-align: center;
+    color: #fff;
+}
+
+header h1 {
+    font-size: clamp(2rem, 5vw, 2.8rem);
+    margin-bottom: 10px;
+    letter-spacing: -0.04em;
+    text-shadow: 1px 2px 4px rgba(0, 0, 0, 0.25);
+}
+
+header p {
+    max-width: 760px;
+    margin: 0 auto;
+    color: rgba(255, 255, 255, 0.92);
+    font-size: 1.02rem;
+    line-height: 1.5;
+}
+
+main {
+    display: flex;
+    flex-direction: column;
+    gap: 28px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+#form-section,
+#display-section {
+    background: var(--surface);
+    padding: 24px;
+    border: 1px solid rgba(255, 255, 255, 0.35);
+    border-radius: 18px;
+    box-shadow: var(--shadow);
+    backdrop-filter: blur(8px);
+}
+
+#registration-form {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 18px;
+    align-items: end;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+label {
+    font-weight: 700;
+    font-size: 0.92rem;
+    color: var(--text);
+}
+
+input {
+    width: 100%;
+    padding: 11px 12px;
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    font-size: 0.98rem;
+    color: var(--text);
+    background-color: rgba(255, 255, 255, 0.95);
+    transition: border-color 0.2s ease, box-shadow 0.2s ease, transform 0.2s ease;
+}
+
+input::placeholder {
+    color: #8a978f;
+}
+
+input:focus {
+    outline: none;
+    border-color: var(--primary);
+    box-shadow: 0 0 0 4px rgba(46, 125, 50, 0.15);
+    transform: translateY(-1px);
+}
+
+#submit-btn {
+    padding: 12px 14px;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    font-weight: 700;
+    font-size: 1rem;
+    color: #fff;
+    background: linear-gradient(135deg, var(--primary) 0%, #49a245 100%);
+    box-shadow: 0 10px 18px rgba(46, 125, 50, 0.25);
+    transition: transform 0.15s ease, box-shadow 0.15s ease, filter 0.15s ease;
+}
+
+#submit-btn:hover {
+    filter: brightness(1.04);
+    transform: translateY(-1px);
+    box-shadow: 0 14px 22px rgba(46, 125, 50, 0.30);
+}
+
+#submit-btn:active {
+    transform: translateY(0);
+}
+
+#display-section h2 {
+    margin-bottom: 16px;
+    color: var(--primary-dark);
+    border-bottom: 2px solid var(--accent);
+    padding-bottom: 10px;
+    font-size: 1.35rem;
+}
+
+#table-container {
+    overflow-x: auto;
+    max-height: 420px;
+    overflow-y: auto;
+    border: 1px solid #edf3ee;
+    border-radius: 12px;
+    background: var(--surface-strong);
+}
+
+#student-table {
+    width: 100%;
+    border-collapse: collapse;
+    min-width: 680px;
+}
+
+th,
+td {
+    text-align: left;
+    padding: 12px 14px;
+    border-bottom: 1px solid #edf3ee;
+    font-size: 0.95rem;
+}
+
+th {
+    position: sticky;
+    top: 0;
+    z-index: 1;
+    background: linear-gradient(180deg, #f7fbf7 0%, #eff5ef 100%);
+    color: #4b5b53;
+    font-weight: 700;
+}
+
+tr:hover td {
+    background-color: #f7fbf7;
+}
+
+.actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+
+.edit-btn,
+.delete-btn {
+    padding: 7px 10px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 0.85rem;
+    font-weight: 700;
+    transition: transform 0.15s ease, opacity 0.2s ease, box-shadow 0.2s ease;
+}
+
+.edit-btn {
+    background: linear-gradient(135deg, #ffd54f, #ffca28);
+    color: #3a2f05;
+}
+
+.delete-btn {
+    background: linear-gradient(135deg, #e53935, #c62828);
+    color: #fff;
+}
+
+.edit-btn:hover,
+.delete-btn:hover {
+    opacity: 0.95;
+    transform: translateY(-1px);
+    box-shadow: 0 8px 14px rgba(0, 0, 0, 0.12);
+}
+
+#student-list:empty::after {
+    content: 'No students registered yet.';
+    display: block;
+    padding: 18px;
+    text-align: center;
+    color: var(--muted);
+    font-style: italic;
+}
+
+@media (max-width: 640px) {
+    body {
+        padding: 12px;
+    }
+
+    header {
+        margin-bottom: 18px;
+    }
+
+    header h1 {
+        font-size: 1.9rem;
+    }
+
+    header p {
+        font-size: 0.95rem;
+    }
+
+    #form-section,
+    #display-section {
+        padding: 16px;
+        border-radius: 14px;
+    }
+
+    #registration-form {
+        grid-template-columns: 1fr;
+    }
+
+    .actions {
+        flex-direction: column;
+        align-items: stretch;
+    }
+}
+
+@media (min-width: 641px) and (max-width: 1024px) {
+    #registration-form {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+@media (min-width: 1025px) {
+    main {
+        flex-direction: row;
+        align-items: flex-start;
+    }
+
+    #form-section {
+        flex: 1;
+    }
+
+    #display-section {
+        flex: 2;
+    }
+
+    #registration-form {
+        grid-template-columns: 1fr;
+    }
+}
